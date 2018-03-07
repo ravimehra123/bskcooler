@@ -1,11 +1,9 @@
 require 'ostruct'
 
 module Configuration
-  CONFIG_PATH = "#{Rails.root}/config/config.yml"
-
   class Settings < OpenStruct
     def self.load
-      config = YAML.load(ERB.new(File.read(CONFIG_PATH)).result)
+      config = YAML.load(ERB.new(File.new(File.join(Rails.root,'config/config.yml')).read).result)
       if config['all']
         config = config['all'].merge(config[Rails.env])
       else
