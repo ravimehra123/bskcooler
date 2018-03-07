@@ -22,8 +22,10 @@ production:
   database: bskcooler
   username: root
   password: zenifer123
+  host: localhost
   pool: 5
   timeout: 5000
+  port: /var/run/mysqld/mysqld.sock
 
   # production:
   # adapter: postgresql
