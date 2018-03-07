@@ -34,13 +34,13 @@
 #
 # And/or per server (overrides global)
 # ------------------------------------
-server '174.138.36.4',
-  user: 'guest',
-  roles: %w{web app db},
-  ssh_options: {
-    user: 'guest', # overrides user setting above
-    keys: %w(/home/guest/.ssh/id_rsa),
-    forward_agent: false,
-    auth_methods: %w(publickey password)
-    # password: 'please use keys'
-  }
+# server '174.138.36.4',
+#   user: 'guest',
+#   roles: %w{web app db},
+#   ssh_options: {
+#     user: 'guest', # overrides user setting above
+#     keys: %w(/home/guest/.ssh/id_rsa),
+#     forward_agent: false,
+#     auth_methods: %w(publickey password)
+#     # password: 'please use keys'
+#   }
