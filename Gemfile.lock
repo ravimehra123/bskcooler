@@ -37,6 +37,7 @@ GEM
     bcrypt (3.1.9)
     breadcrumbs_on_rails (2.3.0)
     builder (3.2.2)
+    byebug (9.0.6)
     capistrano (3.2.1)
       i18n
       rake (>= 10.0.0)
@@ -143,7 +144,7 @@ GEM
     mono_logger (1.1.0)
     multi_json (1.10.1)
     multipart-post (2.0.0)
-    mysql2 (0.3.16)
+    mysql2 (0.3.21)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.1)
@@ -310,6 +311,7 @@ PLATFORMS
 DEPENDENCIES
   aasm (~> 3.3.1)
   breadcrumbs_on_rails (~> 2.3.0)
+  byebug
   capistrano
   capistrano-bundler
   capistrano-rails
@@ -328,7 +330,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   jquery-ui-rails
-  mysql2
+  mysql2 (~> 0.3.20)
   paperclip (~> 3.4)
   paperclip-googledrive
   passenger
@@ -351,4 +353,4 @@ DEPENDENCIES
   will_paginate-bootstrap (~> 1.0.0)
 
 BUNDLED WITH
-   1.16.0
+   1.16.1

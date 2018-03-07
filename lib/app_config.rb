@@ -6,7 +6,6 @@ module Configuration
   class Settings < OpenStruct
     def self.load
       config = YAML.load(ERB.new(File.read(CONFIG_PATH)).result)
-
       if config['all']
         config = config['all'].merge(config[Rails.env])
       else

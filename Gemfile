@@ -55,16 +55,17 @@ gem 'draper', '~> 1.3'
 gem 'sms-club', '~> 0.3'
 gem 'faker', '~> 1.3.0'
 
-gem 'mysql2'  
+gem 'mysql2', '~> 0.3.20' 
 #gem 'pg', '~> 0.17.1'
 gem 'pry'
-
+gem 'byebug'
 group :development, :test do
   #gem 'sqlite3'
   gem 'spring', '~> 1.1.3'
   gem 'capybara', '~> 2.2.1'
   gem 'factory_girl_rails', '~> 4.3.0'
   gem 'rspec-rails', '~> 3.1.0'
+  
   
   #gem 'debugger'
 end
