@@ -69,12 +69,20 @@ group :development, :test do
   #gem 'debugger'
 end
 
+# group :development do
+#   gem 'capistrano', '~> 3.2'
+#   gem 'capistrano-rbenv', '~> 2.0'
+#   gem 'capistrano-rails', '~> 1.1.1'
+#   gem 'annotate', '~> 2.6'
+#   gem 'rack-mini-profiler'
+# end
+
 group :development do
-  gem 'capistrano', '~> 3.2'
-  gem 'capistrano-rbenv', '~> 2.0'
-  gem 'capistrano-rails', '~> 1.1.1'
-  gem 'annotate', '~> 2.6'
-  gem 'rack-mini-profiler'
+    gem 'capistrano',         require: false
+    gem 'capistrano-rvm',     require: false
+    gem 'capistrano-rails',   require: false
+    gem 'capistrano-bundler', require: false
+    gem 'capistrano3-puma',   require: false
 end
 
 group :production do
@@ -91,3 +99,5 @@ end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
+
+gem 'puma'
