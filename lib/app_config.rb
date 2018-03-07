@@ -1,5 +1,4 @@
 require 'ostruct'
-require 'yaml'
 
 module Configuration
   class Settings < OpenStruct
