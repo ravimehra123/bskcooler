@@ -1,0 +1,3 @@
+"<% params[:review] = nil %>"
+$('#reviews').html("<%= escape_javascript render(:partial => 'reviews/product_reviews') %>");
+$(".review_count").text("<%= @product.reviews.count %>");

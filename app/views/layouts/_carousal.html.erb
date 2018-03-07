@@ -1,0 +1,47 @@
+<section id="slider"><!--slider-->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div id="slider-carousel" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#slider-carousel" data-slide-to="1"></li>
+            <li data-target="#slider-carousel" data-slide-to="2"></li>
+          </ol>
+          
+          <div class="carousel-inner">
+            <% @products.where(feature: true).limit(5).each_with_index do|product,index|  %>
+              <% if index == 0 %>
+              <div class="item active">
+              <% else %>
+              <div class="item">
+              <% end %>
+                <div class="col-sm-6">
+                  <h1><span><%= product.name%></span></h1>
+                  <h3><%= number_to_currency product.price %></h3>
+                  <p><%= product.description.truncate(60) %></p>
+                  <%= link_to "Get it now", seo_product_path(product, product.seo_name),class: "btn btn-default get" %>
+                </div>
+                <div class="col-sm-6">
+                  <% if product.images.any? %>
+                    <%= image_tag (product.images.first.image), class: 'girl img-responsive'  %>
+                  <%else%>
+                   <%= image_tag ('missing.png'), class: 'girl img-responsive'  %>
+                  <%end%>
+                </div>
+              </div>       
+            <%end%>
+          </div>
+          
+          <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+            <i class="fa fa-angle-left"></i>
+          </a>
+          <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
+            <i class="fa fa-angle-right"></i>
+          </a>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</section><!--/slider-->

@@ -1,0 +1,55 @@
+<div class="tab-pane fade active in" id="reviews" >
+  <div class="col-sm-12">
+    <% if @reviews.size > 0 %>
+      <% @reviews.each_with_index do |review, index| %>
+        <ul>
+          <li>
+            <a href="">
+              <i class="fa fa-user"></i>
+              <%= review.reviewer_name %>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <i class="fa fa-clock-o"></i>
+              <%= get_time(review.created_at) %>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <i class="fa fa-calendar-o"></i>
+              <%= get_date(review.created_at) %>
+            </a>
+          </li>
+        </ul>
+        <p>
+          <b><i>"<%= review.title %>"</i></b></br>
+          <%= review.description %>
+        </p>
+      <% end %>
+      <%= link_to "View All", reviews_path(product_id: @product.id), class: "pull-right" if @product.reviews.count > 3 %>
+    <% else %>
+      <ul>
+        <li>
+          <i>Be the first to review</i>
+        </li>
+      </ul>
+    <% end %>
+    <p><b>Write Your Review</b></p>
+    <%= form_for :review, url: reviews_path, method: :post, remote: true, html: {id: "review_form"} do |f| %>
+      <%= hidden_field_tag :product_id, @product.id %>
+      <span>
+        <%= f.text_field :reviewer_name, value: "", placeholder: "Your Name" %>
+        <%= f.text_field :reviewer_email, value: "", placeholder: "Email Address" %>
+      </span>
+      <span>
+        <%= f.text_field :title, value: "", placeholder: "Review Title", class: "review-title" %>
+      </span>
+      <%= f.text_area :description, value: "", placeholder: "Enter Description" %>
+      <!-- <b>Rating: </b> <img src="images/product-details/rating.png" alt="" /> -->
+      <button type="button" class="btn btn-default pull-right" id="review_btn">
+        Submit
+      </button>
+    <% end %>
+  </div>
+</div>
