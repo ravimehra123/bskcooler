@@ -14,8 +14,8 @@
 # This can be used to drop a more detailed server definition into the
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
-set :password, ask('Server password:', nil)
-server '104.236.75.107', user: 'deploy', port: 22, password: fetch(:password), roles: %w{web app db}
+#set :password, ask('Server password:', nil)
+#server '104.236.75.107', user: 'deploy', port: 22, password: fetch(:password), roles: %w{web app db}
 #server '104.236.75.107', user: 'deploy', roles: %w(web app db)
 
 
@@ -34,13 +34,13 @@ server '104.236.75.107', user: 'deploy', port: 22, password: fetch(:password), r
 #
 # And/or per server (overrides global)
 # ------------------------------------
-# server 'example.com',
-#   user: 'user_name',
-#   roles: %w{web app},
-#   ssh_options: {
-#     user: 'user_name', # overrides user setting above
-#     keys: %w(/home/user_name/.ssh/id_rsa),
-#     forward_agent: false,
-#     auth_methods: %w(publickey password)
-#     # password: 'please use keys'
-#   }
+server '174.138.36.4',
+  user: 'guest',
+  roles: %w{web app db},
+  ssh_options: {
+    user: 'guest', # overrides user setting above
+    keys: %w(/home/guest/.ssh/id_rsa),
+    forward_agent: false,
+    auth_methods: %w(publickey password)
+    # password: 'please use keys'
+  }

@@ -1,4 +1,4 @@
-server '174.138.36.4', port: 3000, roles: [:web, :app, :db], primary: true
+server '174.138.36.4', roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@example.com:ravimehra123/bskcooler.git'
 set :application,     'bskcooler'
