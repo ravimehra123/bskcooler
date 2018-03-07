@@ -6,9 +6,6 @@ require 'capistrano/rails'
 require 'capistrano/bundler'
 require 'capistrano/rvm'
 require 'capistrano/puma'
-require 'capistrano/rails/console'
-require 'capistrano/rails/assets'
-require 'capistrano/rails/migrations'
 
 
 # Loads custom tasks from `lib/capistrano/tasks' if you have any defined.
