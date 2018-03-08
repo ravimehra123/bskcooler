@@ -48,7 +48,7 @@ test:
 # Production configs
 production:
   secret_key_base: <%= ENV['SECRET_KEY_BASE'] %>
-  devise_secret_key: <%= ENV['DEVISE_KEY'] %>
+  devise_secret_key: 5a8b7c3d422b6d8cf865ec36153c14569fa9b8b1f9f49f18f9addec7691da11c7cfaeed94e3d0730b35e2d6ec3a84b8550afd850847be94a28a58b9b5bd8b403
 
   sms_notifier:
     enabled: false
