@@ -27,6 +27,7 @@ db/*.sqlite3
 *.sassc
 .redcar/
 .sass-cache
+.env.default
 /config/config.yml.sample
 /coverage.data
 /coverage/
