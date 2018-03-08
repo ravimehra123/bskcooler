@@ -34,7 +34,7 @@ set :puma_init_active_record, true  # Change to false when not using ActiveRecor
 # set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 before 'deploy:assets:precompile', :symlink_config_files
-after  :updating,   'deploy:env_var_file'
+after  :updating,   'upload:env_var_file'
 namespace :puma do
   desc 'Create Directories for Puma Pids and Socket'
   task :make_dirs do
@@ -47,7 +47,7 @@ namespace :puma do
   before :start, :make_dirs
 end
 
-namespace :deploy do
+namespace :upload do
   desc "Deploy environment variables file"
   task :env_var_file do
     on roles(:app, :resque_scheduler, :resque_worker) do
