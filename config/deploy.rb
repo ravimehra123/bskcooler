@@ -33,8 +33,8 @@ set :puma_init_active_record, true  # Change to false when not using ActiveRecor
 # set :linked_files, %w{config/database.yml}
 # set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
-before 'deploy:assets:precompile', :symlink_config_files
-after  :updating,   'upload:env_var_file'
+
+
 namespace :puma do
   desc 'Create Directories for Puma Pids and Socket'
   task :make_dirs do
@@ -103,7 +103,8 @@ namespace :deploy do
       end
     end
   end
-
+  before 'deploy:assets:precompile', :symlink_config_files
+  after  :updating,   'upload:env_var_file'
   before :starting,     :check_revision
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
