@@ -47,13 +47,13 @@ test:
 
 # Production configs
 production:
-  secret_key_base: d56101e277742dd1c31d52fa6ac778e3a2c7661496366d46963eabe2479f7eb41312ce57193b53d1b9c3700cf229eef65bf4b805adf40431c42787fb450620ad
-  devise_secret_key: 5a8b7c3d422b6d8cf865ec36153c14569fa9b8b1f9f49f18f9addec7691da11c7cfaeed94e3d0730b35e2d6ec3a84b8550afd850847be94a28a58b9b5bd8b403
+  secret_key_base: <%= ENV['SECRET_KEY_BASE'] %>
+  devise_secret_key: <%= ENV['DEVISE_KEY'] %>
 
   sms_notifier:
     enabled: false
-    login: 380503923223
-    password: password
+    login: <%= ENV['SMS_NOTIFIER_LOGIN'] %>
+    password: <%= ENV['SMS_NOTIFIER_PASSWORD'] %>
     from: RailsCommerce
 
   mailer:
@@ -61,6 +61,6 @@ production:
     host: domain.com
     smtp:
       address: smtp.mandrillapp.com
-      user: username
+      user: <%= ENV['MAILER_USER'] %>
       port: 587
-      password: password
+      password: <%= ENV['MAILER_PASSWORD'] %>
