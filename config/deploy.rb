@@ -52,7 +52,7 @@ task :symlink_config_files do
   symlinks = {
     "#{shared_path}/config/prod.env" => "#{release_path}/config/prod.env"
   }
-  run symlinks.map{|from, to| "ln -nfs #{from} #{to}"}.join(" && ")
+  execute symlinks.map{|from, to| "ln -nfs #{from} #{to}"}.join(" && ")
 end
 
 namespace :deploy do
