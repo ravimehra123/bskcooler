@@ -33,6 +33,8 @@ set :puma_init_active_record, true  # Change to false when not using ActiveRecor
 # set :linked_files, %w{config/database.yml}
 # set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
+before 'deploy:assets:precompile', :symlink_config_files
+after  :updating,   'deploy:env_var_file'
 namespace :puma do
   desc 'Create Directories for Puma Pids and Socket'
   task :make_dirs do
@@ -45,13 +47,20 @@ namespace :puma do
   before :start, :make_dirs
 end
 
-before 'deploy:assets:precompile', :symlink_config_files
+namespace :deploy do
+  desc "Deploy environment variables file"
+  task :env_var_file do
+    on roles(:app, :resque_scheduler, :resque_worker) do
+      upload! "./config/prod.env", "#{release_path}/.env"
+    end
+  end
+end
 
 desc "Link shared files"
 task :symlink_config_files do
   on roles(:app) do
     symlinks = {
-      "#{shared_path}/config/prod.env" => "#{release_path}/config/prod.env"
+      "#{shared_path}/config/prod.env" => "#{release_path}/.env"
     }
     execute symlinks.map{|from, to| "ln -nfs #{from} #{to}"}.join(" && ")
   end  
