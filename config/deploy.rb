@@ -49,10 +49,12 @@ before 'deploy:assets:precompile', :symlink_config_files
 
 desc "Link shared files"
 task :symlink_config_files do
-  symlinks = {
-    "#{shared_path}/config/prod.env" => "#{release_path}/config/prod.env"
-  }
-  execute symlinks.map{|from, to| "ln -nfs #{from} #{to}"}.join(" && ")
+  on roles(:app) do
+    symlinks = {
+      "#{shared_path}/config/prod.env" => "#{release_path}/config/prod.env"
+    }
+    execute symlinks.map{|from, to| "ln -nfs #{from} #{to}"}.join(" && ")
+  end  
 end
 
 namespace :deploy do
