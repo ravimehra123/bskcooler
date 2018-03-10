@@ -59,6 +59,7 @@ gem 'mysql2', '~> 0.3.20'
 #gem 'pg', '~> 0.17.1'
 gem 'pry'
 gem 'byebug'
+gem 'dotenv-rails'
 group :development, :test do
   #gem 'sqlite3'
   gem 'spring', '~> 1.1.3'

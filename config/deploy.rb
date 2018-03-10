@@ -50,7 +50,7 @@ end
 namespace :upload do
   desc "Deploy environment variables file"
   task :env_var_file do
-    on roles(:app, :resque_scheduler, :resque_worker) do
+    on roles(:app) do
       upload! "./config/prod.env", "#{release_path}/.env"
     end
   end
