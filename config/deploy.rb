@@ -47,24 +47,24 @@ namespace :puma do
   before :start, :make_dirs
 end
 
-namespace :upload do
-  desc "Deploy environment variables file"
-  task :env_var_file do
-    on roles(:app) do
-      upload! "./config/prod.env", "#{release_path}/.env"
-    end
-  end
-end
+# namespace :upload do
+#   desc "Deploy environment variables file"
+#   task :env_var_file do
+#     on roles(:app) do
+#       upload! "./config/prod.env", "#{release_path}/.env"
+#     end
+#   end
+# end
 
-desc "Link shared files"
-task :symlink_config_files do
-  on roles(:app) do
-    symlinks = {
-      "#{shared_path}/config/prod.env" => "#{release_path}/.env"
-    }
-    execute symlinks.map{|from, to| "ln -nfs #{from} #{to}"}.join(" && ")
-  end  
-end
+# desc "Link shared files"
+# task :symlink_config_files do
+#   on roles(:app) do
+#     symlinks = {
+#       "#{shared_path}/config/prod.env" => "#{release_path}/.env"
+#     }
+#     execute symlinks.map{|from, to| "ln -nfs #{from} #{to}"}.join(" && ")
+#   end  
+# end
 
 namespace :deploy do
   desc "Make sure local git is in sync with remote."
@@ -103,8 +103,8 @@ namespace :deploy do
       end
     end
   end
-  before 'deploy:assets:precompile', :symlink_config_files
-  after  :updating,   'upload:env_var_file'
+  # before 'deploy:assets:precompile', :symlink_config_files
+  # after  :updating,   'upload:env_var_file'
   before :starting,     :check_revision
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
