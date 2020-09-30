@@ -62,7 +62,7 @@ gem 'byebug'
 gem 'dotenv-rails'
 group :development, :test do
   #gem 'sqlite3'
-  gem 'spring', '~> 1.1.3'
+  gem 'spring', '~> 2.1.1'
   gem 'capybara', '~> 2.2.1'
   gem 'factory_girl_rails', '~> 4.3.0'
   gem 'rspec-rails', '~> 3.1.0'

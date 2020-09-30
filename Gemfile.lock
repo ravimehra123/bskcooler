@@ -267,7 +267,7 @@ GEM
       faraday (~> 0.9)
       nokogiri (~> 1.6)
       translit (~> 0.1)
-    spring (1.1.3)
+    spring (2.1.1)
     sprockets (2.11.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -349,7 +349,7 @@ DEPENDENCIES
   rspec-rails (~> 3.1.0)
   sdoc
   sms-club (~> 0.3)
-  spring (~> 1.1.3)
+  spring (~> 2.1.1)
   therubyracer
   turbolinks
   uglifier (>= 1.3.0)
