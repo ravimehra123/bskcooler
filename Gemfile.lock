@@ -35,7 +35,7 @@ GEM
       extlib (>= 0.9.15)
       multi_json (>= 1.0.0)
     bcrypt (3.1.9)
-    breadcrumbs_on_rails (2.3.0)
+    breadcrumbs_on_rails (3.0.1)
     builder (3.2.2)
     byebug (9.0.6)
     capistrano (3.2.1)
@@ -314,7 +314,7 @@ PLATFORMS
 
 DEPENDENCIES
   aasm (~> 3.3.1)
-  breadcrumbs_on_rails (~> 2.3.0)
+  breadcrumbs_on_rails (~> 3.0.1)
   byebug
   capistrano
   capistrano-bundler
