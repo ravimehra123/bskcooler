@@ -9,7 +9,7 @@ gem 'therubyracer'
 gem 'will_paginate', '~> 3.0.5'
 gem 'will_paginate-bootstrap', '~> 1.0.0'
 
-gem 'breadcrumbs_on_rails', '~> 2.3.0'
+gem 'breadcrumbs_on_rails', '~> 3.0.1'
 
 gem 'paperclip', '~> 3.4'
 gem 'font-awesome-rails'
